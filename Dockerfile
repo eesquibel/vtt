@@ -1,6 +1,6 @@
 FROM alpine AS extract
 
-ARG VERSION=10.284
+ARG VERSION=11.313
 
 RUN apk add --no-cache unzip
 
@@ -8,7 +8,7 @@ ADD FoundryVTT-${VERSION}.zip /tmp/foundry.zip
 
 RUN unzip /tmp/foundry.zip -d /tmp/foundry
 
-FROM node:16-alpine
+FROM node:20-alpine
 
 COPY --from=extract /tmp/foundry/resources/app /opt/foundry
 
