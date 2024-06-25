@@ -1,0 +1,16 @@
+name: vtt
+
+services:
+  vtt-12:
+    image: jignate/vtt:12
+    ports:
+      - "30012:30000"
+    volumes:
+      - C:/path/to/vtt/12:/data
+
+  vtt-11:
+    image: jignate/vtt:12
+    ports:
+      - "30011:30000"
+    volumes:
+      - C:/path/to/vtt/11:/data
