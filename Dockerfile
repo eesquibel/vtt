@@ -1,8 +1,8 @@
-ARG NODE_VERSION=20-alpine
+ARG NODE_VERSION=22-alpine
 
 FROM alpine AS extract
 
-ARG VERSION=11.313
+ARG VERSION=Node-13.351
 
 RUN apk add --no-cache unzip
 
@@ -12,7 +12,7 @@ RUN unzip /tmp/foundry.zip -d /tmp/foundry
 
 FROM node:${NODE_VERSION}
 
-COPY --from=extract /tmp/foundry/resources/app /opt/foundry
+COPY --from=extract /tmp/foundry /opt/foundry
 
 VOLUME [ "/data" ]
 
