@@ -23,6 +23,7 @@ Docker image and compose setup for running Foundry Virtual Tabletop. You must al
    ```
    - `VERSION` must match the archive name (e.g., `Node-13.351`).
    - `NODE_VERSION` defaults to `22-alpine`; override if you need a different base.
+   - Add `--build-arg COPY_DIR=/resources/app` if building version 12 and under
 
 ### Running with Docker Compose
 1. Copy `docker-compose.yml` to the directory where you want to run Foundry and rename to `compose.yml`.

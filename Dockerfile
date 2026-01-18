@@ -12,7 +12,9 @@ RUN unzip /tmp/foundry.zip -d /tmp/foundry
 
 FROM node:${NODE_VERSION}
 
-COPY --from=extract /tmp/foundry /opt/foundry
+ARG COPY_DIR= # VTT <= 12, use /resources/app, VTT >= 13, leave empty
+
+COPY --from=extract /tmp/foundry${COPY_DIR} /opt/foundry
 
 VOLUME [ "/data" ]
 
